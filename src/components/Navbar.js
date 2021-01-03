@@ -2,18 +2,13 @@ import './Navbar.css';
 import homebutton from '../img/homebutton.png';
 import aboutbutton from '../img/aboutbutton.png';
 import contactbutton from '../img/contactbutton.png';
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
 function Navbutton(props){
-    const[Page, setPage] = useState(window.location.href);
-
-    let currentPage = window.location.href;
-
-
-
-
+    
+    
     const navbutton = (
         <Link to={props.link}>
             <div className="nav-button">
@@ -21,7 +16,7 @@ function Navbutton(props){
              src={props.src}
              title={props.title}
              alt="cant find"
-
+             onClick={props.trigger}
              >
             </img>
             </div>
@@ -31,8 +26,6 @@ function Navbutton(props){
     return navbutton;
 }
 function Navbar(){
-
-    let currentPage = window.location.href
     const[Page, setPage] = useState(window.location.href);
 
     const navbuttons = [
@@ -52,25 +45,24 @@ function Navbar(){
             link: "/",
             title: "contact"
     }];
-
-    const changeRouteOnButtonClick = () =>{
+    const changeState = () =>{
         setTimeout(() => {
-            setPage(window.location.href);
-           currentPage =
-                (window.location.href).substr(21);
-                console.log(
-                    (window.location.href).substr(21) === '/'
-                    );
-            console.log('page to',
-             currentPage);
+            setPage((window.location.href).substr(21));
+            
         },0)
-
     }
+
     const filterDisplay = navbuttons.filter(buttonObject =>
-        buttonObject.link != Page.substr(21)
-        )
+        buttonObject.link !== Page
+
+    )
     const navbarDisplay = filterDisplay.map(buttonObject =>
-     <Navbutton link = {buttonObject.link} src={buttonObject.src} title={buttonObject.title} onClick = {() => changeRouteOnButtonClick}/>
+     <Navbutton 
+        link = {buttonObject.link}
+        src={buttonObject.src}
+        title={buttonObject.title}
+        trigger={changeState}
+        />
     )
 
     return <div id = "nav-bar"> {navbarDisplay} </div>;

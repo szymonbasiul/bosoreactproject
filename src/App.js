@@ -2,6 +2,7 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 
@@ -19,6 +20,7 @@ function About (){
   return <div>about</div>
 }
 function App() {
+  
   return (
     <BrowserRouter>
     <Navbar />
