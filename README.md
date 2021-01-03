@@ -1,7 +1,7 @@
 # Must-have packages
-npm install react-router-dom
+`npm install react-router-dom`
         OR
-yarn add react-router-dom
+`yarn add react-router-dom`
 
 # Getting Started with Create React App
 
