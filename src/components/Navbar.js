@@ -7,26 +7,13 @@ import { Link } from 'react-router-dom';
 
 
 function Navbutton(props){
-    let pageCoreState = undefined;
-    useEffect(() =>{
-        pageCoreState = window.location.href;
-     })
-    const [currentPage, setCurrentPage] = useState(window.location.href)
-    
-    
-    const changeStateOnbuttonClick = () =>{
-        setTimeout(() => {
-            setCurrentPage(
-                (window.location.href).substr(21)
-                );
-            console.log('stan to',
-             currentPage,
-             'rzeczywisty adres strony to',
-             (window.location.href).substr(21));
-        },100)
-        
-    }
-    
+    const[Page, setPage] = useState(window.location.href);
+
+    let currentPage = window.location.href;
+
+
+
+
     const navbutton = (
         <Link to={props.link}>
             <div className="nav-button">
@@ -34,33 +21,59 @@ function Navbutton(props){
              src={props.src}
              title={props.title}
              alt="cant find"
-             onClick={() => changeStateOnbuttonClick() }
+
              >
             </img>
             </div>
         </Link>
     )
-    console.log(
-        currentPage === '/'
-        );
+
     return navbutton;
 }
 function Navbar(){
 
-    const navbarDisplay = (
-        <div id="nav-bar">
-            <Navbutton
-             src={contactbutton} 
-             link="/contact" 
-             title="contact" />
+    let currentPage = window.location.href
+    const[Page, setPage] = useState(window.location.href);
 
-            <Navbutton src={aboutbutton} link="/about" title="about"/>
+    const navbuttons = [
+        {
+            src: contactbutton,
+            link: "/contact",
+            title: "contact"
+    },
+        {
+            src: aboutbutton,
+            link: "/about",
+            title: "about"
 
-            <Navbutton src={homebutton} link="/" title="home"/>
-        </div>
+    },
+        {
+            src: homebutton,
+            link: "/",
+            title: "contact"
+    }];
+
+    const changeRouteOnButtonClick = () =>{
+        setTimeout(() => {
+            setPage(window.location.href);
+           currentPage =
+                (window.location.href).substr(21);
+                console.log(
+                    (window.location.href).substr(21) === '/'
+                    );
+            console.log('page to',
+             currentPage);
+        },0)
+
+    }
+    const filterDisplay = navbuttons.filter(buttonObject =>
+        buttonObject.link != Page.substr(21)
+        )
+    const navbarDisplay = filterDisplay.map(buttonObject =>
+     <Navbutton link = {buttonObject.link} src={buttonObject.src} title={buttonObject.title} onClick = {() => changeRouteOnButtonClick}/>
     )
-    
-    return navbarDisplay;
+
+    return <div id = "nav-bar"> {navbarDisplay} </div>;
 }
 
 export default Navbar;
