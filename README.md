@@ -1,7 +1,7 @@
 # Must-have packages
-npm install react-router-dom
+`npm install react-router-dom`
         OR
-yarn add react-router-dom
+`yarn add react-router-dom`
 
 # Getting Started with Create React App
 
@@ -11,7 +11,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-### `yarn start`
+### `yarn start` OR `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
