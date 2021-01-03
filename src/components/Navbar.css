@@ -1,6 +1,7 @@
-#nav-bar {
+.nav-bar {
     display: flex;
-    flex-direction: row-reverse;
+    
+    justify-content: right;
     background-color: white;
     max-width: 960px;
     margin-left: auto;
@@ -9,6 +10,7 @@
     right: 0;
     position: fixed;
     top: 0;
+    background-color: aqua;
 }
 
 .nav-button {
@@ -20,8 +22,13 @@
     font-size: medium;
     font-weight: bold;
     font-style: italic;
+    
 }
 
 .button-img{
     max-width: 30%;
 }
+/* flex-direction: row-reverse;
+
+
+*/

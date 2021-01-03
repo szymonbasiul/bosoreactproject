@@ -2,10 +2,6 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import { useEffect } from 'react';
-
-
-
 
 function ErrorComponent (){
   return <div>eroor</div>
@@ -22,6 +18,7 @@ function About (){
 function App() {
   
   return (
+    <div id='mainDiv'>
     <BrowserRouter>
     <Navbar />
     <Switch>
@@ -31,7 +28,7 @@ function App() {
     <Route component={ErrorComponent}/>
     </Switch>
     </BrowserRouter>
-
+    </div>
   )
 }
 

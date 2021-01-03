@@ -2,12 +2,11 @@ import './Navbar.css';
 import homebutton from '../img/homebutton.png';
 import aboutbutton from '../img/aboutbutton.png';
 import contactbutton from '../img/contactbutton.png';
-import React, { useEffect, useState} from 'react';
+import React, { useState} from 'react';
 import { Link } from 'react-router-dom';
 
 
 function Navbutton(props){
-    
     
     const navbutton = (
         <Link to={props.link}>
@@ -43,12 +42,12 @@ function Navbar(){
         {
             src: homebutton,
             link: "/",
-            title: "contact"
+            title: "home"
     }];
     const changeState = () =>{
         setTimeout(() => {
-            setPage((window.location.href).substr(21));
-            
+            setPage((window.location.href).substr(21));  
+
         },0)
     }
 
@@ -58,6 +57,7 @@ function Navbar(){
     )
     const navbarDisplay = filterDisplay.map(buttonObject =>
      <Navbutton 
+        key ={buttonObject.title}
         link = {buttonObject.link}
         src={buttonObject.src}
         title={buttonObject.title}
@@ -65,7 +65,7 @@ function Navbar(){
         />
     )
 
-    return <div id = "nav-bar"> {navbarDisplay} </div>;
+    return <div className ="nav-bar">{navbarDisplay}</div>;
 }
 
 export default Navbar;
