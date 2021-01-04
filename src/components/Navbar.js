@@ -9,8 +9,8 @@ import { Link } from 'react-router-dom';
 function Navbutton(props){
     
     const navbutton = (
+        <div className="nav-button">
         <Link to={props.link}>
-            <div className="nav-button">
             <img className="button-img"
              src={props.src}
              title={props.title}
@@ -18,8 +18,8 @@ function Navbutton(props){
              onClick={props.trigger}
              >
             </img>
-            </div>
         </Link>
+        </div>
     )
 
     return navbutton;
