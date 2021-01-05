@@ -2,18 +2,17 @@
 import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import Home from './components/Home';
 
-function ErrorComponent (){
-  return <div>eroor</div>
-}
-function Home (){
-  return <div>HOME</div>
-}
+
 function Contact (){
   return <div>contact</div>
 }
 function About (){
   return <div>about</div>
+}
+function ErrorComponent (){
+  return <div>eroor</div>
 }
 function App() {
   
