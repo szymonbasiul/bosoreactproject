@@ -1,9 +1,8 @@
 #mainDiv{
   max-width: 960px;
-
   align-self: center;
-   margin-left: auto;
-   margin-right: auto;
-   background-color: rgb(173, 50, 50);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(207, 203, 203, 0.479)
    
 }
