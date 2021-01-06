@@ -20,7 +20,6 @@ function Home(){
                     <br/>Calculator program made for training purposes. <br/>Project by CodeTeam.
               </div>)
     }
-
     const projectClassList = [
         {
             src: project1pic
@@ -43,22 +42,6 @@ function Home(){
         </div>);
     }
 
-//     const temporaryDivObject =(
-//     <div id="project-container">
-//             <div className="project-class" >
-//                 <img className="pro-image" alt="display project" src={project1pic}/>
-//                    {project1UlListDisplay()}
-//             </div>
-//             <div className="project-class" >
-//                 <img className="pro-image" alt="display project" src={project2pic}/>
-//                 {loremIpsum}
-//             </div>
-//             <div className="project-class" >
-//                 <img className="pro-image" alt="display project" src={project3pic} />
-//                 {loremIpsum}
-//             </div>
-//     </div>
-//  )
     return projectsInContainerDisplay()
 }
 export default Home;

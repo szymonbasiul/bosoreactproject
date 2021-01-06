@@ -3,14 +3,12 @@ import './App.css';
 import Navbar from './components/Navbar';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Home from './components/Home';
-
+import About from './components/About';
 
 function Contact (){
   return <div>contact</div>
 }
-function About (){
-  return <div>about</div>
-}
+
 function ErrorComponent (){
   return <div>eroor</div>
 }
