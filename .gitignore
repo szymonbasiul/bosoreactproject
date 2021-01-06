@@ -6,6 +6,7 @@
 .pnp.js
 debug.log
 .eslintcache
+yarn.lock
 # testing
 /coverage
 
