@@ -1,15 +1,15 @@
 import React from 'react';
 import './About.css';
 import bb from '../img/bodzio-bodzio.png';
-import ss from '../img/szym-szym.png'; 
+import ss from '../img/szym-szym.png';
 
 const About = function(){
 const loremIpsum = (
 <>
     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-    Quam, sapiente facere dignissimos debitis aliquam odio 
-    architecto et dicta nulla ab a perspiciatis voluptas 
-    assumenda similique iure soluta aspernatur repellat? Tenetur.          
+    Quam, sapiente facere dignissimos debitis aliquam odio
+    architecto et dicta nulla ab a perspiciatis voluptas
+    assumenda similique iure soluta aspernatur repellat? Tenetur.
 </>
 )
 const bInfo = (
@@ -19,7 +19,7 @@ const bInfo = (
             Surname: KNT<br/>
             E-mail:nie@uk.co<br/>
     </div>
-);   
+);
 const sInfo =(
     <div className="personal-info">
         <p>&nbsp;Info</p><br/>
@@ -55,7 +55,7 @@ const projectsInContainerDisplay = (
         </div>
     </div>
 </div>
-) 
+)
 return projectsInContainerDisplay;
 }
 
