@@ -1,14 +1,18 @@
-
 #contact-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 400px;
+    justify-content: center;
+
+}
+#inputField-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 40px;
-    width: 100%;
-    height: 400px;
-    background-color: skyblue;
+    margin-right: 15%;
+    
 }
-
 #contact-greeter {
     display: flex;
     margin: auto;
@@ -16,19 +20,46 @@
     max-width: 80%;
 
 }
-
 #contact-greeter p{
-
     margin-top: 160px;
     text-align: center;
     font-size: 32px;
     font-style: italic;
     
 }
-
-#contact-container input{
+#inputField-container input{
     justify-content: space-around;
-    height: 40px;
     width: auto;
+    margin-top: 1%;
+    border: solid 1,5px;
+    font-size: 18px;
+}
+.input-box{
+    width: 100px;
+    height: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    
+}
+#comment-field{
+    width: 300px;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    word-wrap:break-word;
+    resize: none;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+#responisive-textField{
+    background-color: burlywood;
+    width: 200px;
+    height: 100px;
+    text-align: center;
+
+}
+#responsive-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
 
 }
