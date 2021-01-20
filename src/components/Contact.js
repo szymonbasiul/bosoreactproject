@@ -4,25 +4,70 @@ import { useState } from 'react';
 
 const Contact = function () {
 
-    const [unblockEmailField, setUnblockEmailField] = useState(true);
-    const [unblockTextField, setUnblockTextField] = useState(true);
+    const tempContent = {
+
+        name: '',
+        email: '',
+        text: ''
+
+    }
+
+    const fieldValueViewer = () => {
+
+        console.log(fieldValue);
+    }
+
+    const [lockEmailField, setLockEmailField] = useState(true);
+    const [lockTextField, setLockTextField] = useState(true);
+    const [fieldValue, setFieldValue] = useState(tempContent);
+
 
     const [beigeText, setBeigeText] =
         useState("Bezowy tekst");
 
     const testTrigger = (event) => {
-        console.log(unblockEmailField)
+        console.log(lockEmailField)
 
         if (event.target.value) {
-            if (event.target.name == "email") {
-                console.log('text field availible')
-                setUnblockTextField(false)
+            switch(event.target.name){
+                case 'email':
+                    setLockTextField(false);
+                    console.log('text field availible')
+                    setFieldValue((prevfieldValue)=>{
+                    prevfieldValue.email = event.target.value;
+                    return prevfieldValue;
+                })
+                break;
+                case 'name':
+                    setLockEmailField(false);
+                    console.log('you are writing in name field')
+                    setFieldValue((prevfieldValue)=>{
+                    prevfieldValue.name = event.target.value;
+                    return prevfieldValue;
+                })
+                break;
+                case 'message':
+                    console.log('you are writing in text field')
+                    setFieldValue((prevfieldValue)=>{
+                    console.log(prevfieldValue, event.target.value)
+                    prevfieldValue.text = event.target.value;
+                    return prevfieldValue;
+                })
+                break;
 
             }
-            console.log('email availible');
-            setUnblockEmailField(false);
+            console.log(event.target.name)
 
-        } else { console.log('something else') }
+        } else if (!event.target.value) {
+            console.log('cofanko')
+            if(event.target.name == 'name') {
+                setLockEmailField(true)
+            }
+         setLockTextField(true)
+
+
+         }
+         console.log(event.target.value)
     }
 
     const contactForm = (
@@ -38,15 +83,15 @@ const Contact = function () {
                 <div id="inputField-container">
                     <input className="input-box" type="text" name="name" placeholder="John Doe"
                         onChange={testTrigger} />
-                    <input className="input-box" readOnly={unblockEmailField} type="text" name="email" placeholder="John@Doe.Hoe"
+                    <input className="input-box" readOnly={lockEmailField} type="text" name="email" placeholder="John@Doe.Hoe"
                         onChange={testTrigger} />
-                    <textarea maxLength="150" rows="3" readOnly={unblockTextField} id="comment-field" type="text" name="message" placeholder="Write to us..." />
+                    <textarea maxLength="150" rows="3" readOnly={lockTextField} id="comment-field" type="text" name="message" placeholder="Write to us..." onChange={testTrigger}/>
                 </div>
                 <div id="responsive-container">
                     <div id="responisive-textField">
                         {beigeText}
                     </div>
-                    <div id="button-field" onClick={() => { setBeigeText("Bezowy owy") }}>
+                    <div id="button-field" onClick={() => { fieldValueViewer() }}>
                         Button Fajny
 
             </div>
