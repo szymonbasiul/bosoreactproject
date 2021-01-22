@@ -12,6 +12,28 @@ const Contact = function () {
 
     }
 
+
+    const contactToServer = (userData) => {
+        // const data = { username: "example" };
+
+fetch('http://localhost:8000', {
+  method: 'POST', // or 'PUT'
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(userData),
+})
+.then(response => response.text())
+.then(data => {
+  console.log('Success:', data);
+})
+.catch((error) => {
+  console.error('Error:', error);
+});
+
+
+    }
     const fieldValueViewer = () => {
 
         console.log(fieldValue);
@@ -26,13 +48,12 @@ const Contact = function () {
         useState("Bezowy tekst");
 
     const testTrigger = (event) => {
-        console.log(lockEmailField)
+
 
         if (event.target.value) {
             switch(event.target.name){
                 case 'email':
                     setLockTextField(false);
-                    console.log('text field availible')
                     setFieldValue((prevfieldValue)=>{
                     prevfieldValue.email = event.target.value;
                     return prevfieldValue;
@@ -40,34 +61,30 @@ const Contact = function () {
                 break;
                 case 'name':
                     setLockEmailField(false);
-                    console.log('you are writing in name field')
                     setFieldValue((prevfieldValue)=>{
                     prevfieldValue.name = event.target.value;
                     return prevfieldValue;
                 })
                 break;
                 case 'message':
-                    console.log('you are writing in text field')
                     setFieldValue((prevfieldValue)=>{
-                    console.log(prevfieldValue, event.target.value)
                     prevfieldValue.text = event.target.value;
                     return prevfieldValue;
                 })
                 break;
+                default: return console.log("Something some in Inn")
+
 
             }
-            console.log(event.target.name)
 
         } else if (!event.target.value) {
-            console.log('cofanko')
-            if(event.target.name == 'name') {
+            if(event.target.name === 'name') {
                 setLockEmailField(true)
             }
          setLockTextField(true)
 
 
          }
-         console.log(event.target.value)
     }
 
     const contactForm = (
@@ -91,7 +108,7 @@ const Contact = function () {
                     <div id="responisive-textField">
                         {beigeText}
                     </div>
-                    <div id="button-field" onClick={() => { fieldValueViewer() }}>
+                    <div id="button-field" onClick={() => { contactToServer(fieldValue) }}>
                         Button Fajny
 
             </div>

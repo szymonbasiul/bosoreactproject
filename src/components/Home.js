@@ -34,9 +34,9 @@ function Home(){
     const projectsInContainerDisplay = ()=>{
         return (<div id="project-container">
         {projectClassList.map(x=>(
-            <div className="project-class">
+            <div className="project-class" key={x.src} >
                 <img className="pro-image" src={x.src} alt="display project"/>
-                {x.src==project1pic?project1UlListDisplay():loremIpsum}
+                {x.src===project1pic?project1UlListDisplay():loremIpsum}
             </div>
         ))}
         </div>);
