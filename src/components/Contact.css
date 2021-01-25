@@ -1,9 +1,18 @@
+
+.contact-page{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #contact-container{
     display: flex;
     flex-direction: row;
     width: 100%;
-    height: 400px;
+    height: 360px;
     justify-content: center;
+    flex-wrap: wrap;
 
 }
 #inputField-container{
@@ -11,6 +20,8 @@
     flex-direction: column;
     justify-content: center;
     margin-right: 15%;
+    margin-bottom: 10%;
+    margin-top: 10%;
     
 }
 #contact-greeter {
@@ -29,8 +40,8 @@
 }
 #inputField-container input{
     justify-content: space-around;
-    width: auto;
-    margin-top: 1%;
+    width: 300px;
+    margin-bottom: 1%;
     border: solid 1,5px;
     font-size: 18px;
 }
@@ -39,23 +50,30 @@
     height: 30px;
     font-family: 'Times New Roman', Times, serif;
     
+    
+}
+#button-container{
+
+    display: flex;
+    margin: 20px;
+
 }
 #button-field{
 
-    width: 100%;
-    height: 10%;
+    display: flex;
+    width: 20%;
+    height: 30px;
     color: black;
-    justify-content: center;
-    background-color: brown;
+    border: solid 5px rgba(116, 59, 59, 0.658);
+    background-color: white;
     text-align: center;
-    
-
+    margin: 0 auto;
 
 }
 
 #comment-field{
-    width: 300px;
-    height: 60px;
+    width: 400px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     word-wrap:break-word;
@@ -64,9 +82,9 @@
     font-size: 18px;
 }
 #responisive-textField{
-    background-color: burlywood;
+    background-color: white;
     width: 200px;
-    height: 100px;
+    height: 100%;
     text-align: center;
 
 }
@@ -74,5 +92,7 @@
     display: flex;
     flex-direction: column;
     margin-top: 10%;
+    margin-bottom: 10%;
+    justify-content: center;
 
 }

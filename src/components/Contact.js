@@ -50,46 +50,39 @@ fetch('http://localhost:8000', {
     const testTrigger = (event) => {
 
 
-        if (event.target.value) {
-            switch(event.target.name){
-                case 'email':
-                    setLockTextField(false);
-                    setFieldValue((prevfieldValue)=>{
-                    prevfieldValue.email = event.target.value;
-                    return prevfieldValue;
-                })
-                break;
-                case 'name':
-                    setLockEmailField(false);
-                    setFieldValue((prevfieldValue)=>{
-                    prevfieldValue.name = event.target.value;
-                    return prevfieldValue;
-                })
-                break;
-                case 'message':
-                    setFieldValue((prevfieldValue)=>{
-                    prevfieldValue.text = event.target.value;
-                    return prevfieldValue;
-                })
-                break;
-                default: return console.log("Something some in Inn")
+        return (event.target.value) ? {
+            return (event.target.name === 'email') ? {
+            setLockTextField(false);
+            setFieldValue((prevfieldValue) => {
+                prevfieldValue.email = event.target.value;
+                return prevfieldValue;
+            })
+        } : (event.target.name === 'name') ? {
+            setLockEmailField(false);
+            setFieldValue((prevfieldValue) => {
+                prevfieldValue.name = event.target.value;
+                return prevfieldValue;
+            })
+        } : (event.target.name === 'message') ? {
+            setFieldValue((prevfieldValue) => {
+                prevfieldValue.text = event.target.value;
+                return prevfieldValue;
+            })
+        }
 
 
-            }
-
-        } else if (!event.target.value) {
-            if(event.target.name === 'name') {
+    } : (!event.target.value) ? {
+            return (event.target.name === 'name') ? {
                 setLockEmailField(true)
+            } : (event.target.name === 'email') ? {
+                setLockTextField(true)
             }
-         setLockTextField(true)
-
-
-         }
+        }
     }
 
     const contactForm = (
 
-        <div>
+        <div className="contact-page">
             <div id="contact-greeter">
                 <p>
                     Welcome U! Write to us CzłowieniU!
@@ -108,10 +101,12 @@ fetch('http://localhost:8000', {
                     <div id="responisive-textField">
                         {beigeText}
                     </div>
-                    <div id="button-field" onClick={() => { contactToServer(fieldValue) }}>
+                </div>
+            </div>
+            <div id="button-container">
+                <div id="button-field" onClick={() => { contactToServer(fieldValue) }}>
                         Button Fajny
 
-            </div>
                 </div>
             </div>
         </div>
