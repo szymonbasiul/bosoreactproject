@@ -16,21 +16,21 @@ const Contact = function () {
     const contactToServer = (userData) => {
         // const data = { username: "example" };
 
-fetch('http://localhost:8000', {
-  method: 'POST', // or 'PUT'
-  mode: 'cors',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(userData),
-})
-.then(response => response.text())
-.then(data => {
-  console.log('Success:', data);
-})
-.catch((error) => {
-  console.error('Error:', error);
-});
+        fetch('http://localhost:8000', {
+            method: 'POST', // or 'PUT'
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
 
 
     }
@@ -49,32 +49,29 @@ fetch('http://localhost:8000', {
 
     const testTrigger = (event) => {
 
-
-        return (event.target.value) ? {
-            return (event.target.name === 'email') ? {
-            setLockTextField(false);
-            setFieldValue((prevfieldValue) => {
-                prevfieldValue.email = event.target.value;
-                return prevfieldValue;
-            })
-        } : (event.target.name === 'name') ? {
-            setLockEmailField(false);
-            setFieldValue((prevfieldValue) => {
-                prevfieldValue.name = event.target.value;
-                return prevfieldValue;
-            })
-        } : (event.target.name === 'message') ? {
-            setFieldValue((prevfieldValue) => {
-                prevfieldValue.text = event.target.value;
-                return prevfieldValue;
-            })
-        }
-
-
-    } : (!event.target.value) ? {
-            return (event.target.name === 'name') ? {
+        if (event.target.value) {
+            if (event.target.name === 'email') {
+                setLockTextField(false);
+                setFieldValue((prevfieldValue) => {
+                    prevfieldValue.email = event.target.value;
+                    return prevfieldValue;
+                })
+            } else if (event.target.name === 'name') {
+                setLockEmailField(false);
+                setFieldValue((prevfieldValue) => {
+                    prevfieldValue.name = event.target.value;
+                    return prevfieldValue;
+                })
+            } else if (event.target.name === 'message') {
+                setFieldValue((prevfieldValue) => {
+                    prevfieldValue.text = event.target.value;
+                    return prevfieldValue;
+                })
+            }
+        } else if (!event.target.value) {
+            if (event.target.name === 'name') {
                 setLockEmailField(true)
-            } : (event.target.name === 'email') ? {
+            } else if (event.target.name === 'email') {
                 setLockTextField(true)
             }
         }
@@ -95,7 +92,7 @@ fetch('http://localhost:8000', {
                         onChange={testTrigger} />
                     <input className="input-box" readOnly={lockEmailField} type="text" name="email" placeholder="John@Doe.Hoe"
                         onChange={testTrigger} />
-                    <textarea maxLength="150" rows="3" readOnly={lockTextField} id="comment-field" type="text" name="message" placeholder="Write to us..." onChange={testTrigger}/>
+                    <textarea maxLength="150" rows="3" readOnly={lockTextField} id="comment-field" type="text" name="message" placeholder="Write to us..." onChange={testTrigger} />
                 </div>
                 <div id="responsive-container">
                     <div id="responisive-textField">
@@ -105,7 +102,7 @@ fetch('http://localhost:8000', {
             </div>
             <div id="button-container">
                 <div id="button-field" onClick={() => { contactToServer(fieldValue) }}>
-                        Button Fajny
+                    Button Fajny
 
                 </div>
             </div>
