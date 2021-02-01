@@ -1,4 +1,4 @@
-import './Navbar.css';
+import './styles/Navbar.scss';
 import homebutton from '../img/homebutton.png';
 import aboutbutton from '../img/aboutbutton.png';
 import contactbutton from '../img/contactbutton.png';

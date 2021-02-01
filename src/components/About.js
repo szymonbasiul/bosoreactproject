@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css';
+import './styles/About.scss';
 import bb from '../img/bodzio-bodzio.png';
 import ss from '../img/szym-szym.png';
 
