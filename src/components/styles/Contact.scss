@@ -1,10 +1,11 @@
 @import '../../App.scss';
 
-.contact-page{
 
+.contact-page{
+    margin-top: 150px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 #contact-container{
@@ -14,8 +15,8 @@
     height: 360px;
     justify-content: center;
     flex-wrap: wrap;
-
 }
+
 #inputField-container{
     display: flex;
     flex-direction: column;
@@ -23,53 +24,50 @@
     margin-right: 15%;
     margin-bottom: 10%;
     margin-top: 10%;
-    
+    input{
+        justify-content: space-around;
+        width: 300px;
+        margin-bottom: 1%;
+        border: solid 1,5px;
+        font-size: 18px;
+        font-family: $global-font;
+    }
 }
+
 #contact-greeter {
     display: flex;
     margin: auto;
     justify-content: center;
     max-width: 80%;
+    p{
+        text-align: center;
+        font-size: 32px;
+        font-family: $global-font;
+    }
+}
 
-}
-#contact-greeter p{
-    margin-top: 160px;
-    text-align: center;
-    font-size: 32px;
-    font-style: italic;
-    
-}
-#inputField-container input{
-    justify-content: space-around;
-    width: 300px;
-    margin-bottom: 1%;
-    border: solid 1,5px;
-    font-size: 18px;
-}
 .input-box{
     width: 100px;
     height: 30px;
     font-family: $global-font;
-    
-    
 }
-#button-container{
 
+#button-container{
     display: flex;
     margin: 20px;
-
 }
-#button-field{
 
+#button-field{
     display: flex;
     width: 20%;
     height: 30px;
     color: black;
     border: solid 5px rgba(116, 59, 59, 0.658);
     background-color: white;
-    text-align: center;
-    margin: 0 auto;
-
+    justify-content: center;
+    margin: auto;
+    font-family: $global-font;
+    font-size: 27px;
 }
 
 #comment-field{
@@ -82,18 +80,18 @@
     font-family: $global-font;
     font-size: 18px;
 }
+
 #responisive-textField{
     background-color: white;
     width: 200px;
     height: 100%;
     text-align: center;
-
 }
+
 #responsive-container{
     display: flex;
     flex-direction: column;
     margin-top: 10%;
     margin-bottom: 10%;
     justify-content: center;
-
 }

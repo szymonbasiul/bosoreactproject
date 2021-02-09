@@ -102,8 +102,7 @@ const Contact = function () {
             </div>
             <div id="button-container">
                 <div id="button-field" onClick={() => { contactToServer(fieldValue) }}>
-                    Button Fajny
-
+                    Wyślij
                 </div>
             </div>
         </div>

@@ -1,12 +1,13 @@
 
 
 $global-font: 'Times New Roman', Times, serif;
+$global-background: rgba(153, 140, 140, 0.671);
+$content-background: rgba(240, 76, 76, 0.521);
 
 #mainDiv{
   max-width: 960px;
   align-self: center;
   margin:auto;
-  background-color: rgba(236, 126, 126, 0.438)
-
+  background-color: $global-background;
 }
 

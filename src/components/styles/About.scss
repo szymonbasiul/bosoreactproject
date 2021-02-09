@@ -1,14 +1,20 @@
+@import '../../App.scss';
+
+
+
+@mixin p-style {
+    color: white;
+        background-color: black;
+        margin: 0;
+}
+
 #cv-container{
     display: flex;
     justify-content: space-around;
     margin-top: 150px;
-
-}
-
-#cv-container p{
-    color: white;
-    background-color: black;
-    margin: 0;
+    p{
+        @include p-style;
+    }
 }
 
 .profiles-class{
@@ -19,8 +25,6 @@
     max-width: 40%;
     padding: 1%;
     margin: 1%;
-
-
 }
 
 .personal-info{
@@ -31,14 +35,10 @@
     grid-column: 2/3;
     grid-row: 1/2;
     margin: 5px;
-    background-color: rgba(220, 220, 220, 0.521);
-    
-}
-
-.personal-info p{
-    color: white;
-    background-color: black;
-    margin: 0;
+    background-color: $content-background;
+    p{
+        @include p-style;
+    }
 }
 
 .personal-experience{
@@ -48,7 +48,7 @@
     grid-column: 1/3;
     grid-row: 2/3;
     margin: 5px;
-    background-color:rgba(220, 220, 220, 0.521);
+    background-color:$content-background;
 }
 
 .personal-skills{
@@ -58,7 +58,7 @@
     grid-column: 1/3;
     grid-row: 3/4;
     margin: 5px;
-    background-color:rgba(220, 220, 220, 0.521);
+    background-color:$content-background;
 }
 
 .profile-img-box{

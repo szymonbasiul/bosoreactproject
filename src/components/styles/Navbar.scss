@@ -1,3 +1,5 @@
+@import '../../App.scss';
+
 .nav-bar {
     display: flex;
     justify-content: flex-end;
@@ -10,7 +12,6 @@
     position: fixed;
     top: 0;
     border-style: solid;
-
 }
 
 .nav-button {
@@ -22,7 +23,6 @@
     font-weight: bold;
     font-style: italic;
     width: 10%;
-
 }
 
 .button-img{
