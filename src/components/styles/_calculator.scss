@@ -1,0 +1,83 @@
+@import '../../App.scss';
+
+$calculator-shadow-1:rgba(243, 236, 236, 0.445);
+$calculator-shadow-2: rgba(243, 243, 243, 0.637);
+
+.calculator-container{
+    margin-top: 150px;
+    background-color: $global-background;
+
+}
+
+.calculator{
+    display: flex;
+
+    justify-content: center;
+    width: 240px;
+    height: 380px;
+    margin: 80px auto;
+    background-color: rgba(0, 0, 0, 0.301);
+    border-style: dashed;
+    border-radius: 6px;
+    box-shadow: 5px 5px 8px $calculator-shadow-1, -5px -5px 8px $calculator-shadow-2;
+
+}
+
+.cal-body{
+    width: 100%;
+    margin: 20% auto;
+}
+
+#display{
+    border: none;
+    outline: none;
+    color: black;
+    text-align: right;
+    font-weight: 600;
+    padding: 14px;
+    margin: 20px 20px 20px 20px;
+    background: transparent;
+    box-shadow: inset 2px 3px 4px $calculator-shadow-1, inset -4px -4px 8px $calculator-shadow-2;
+
+}
+
+@keyframes buttonFading {
+
+    0% {opacity: 0.0}
+    100% {opacity: 1.0}
+}
+
+
+.cal-btn{
+    animation-name: buttonFading;
+    animation-duration: 3s;
+    margin: 15px 0 0 15px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 5px 5px 8px $calculator-shadow-1, -5px -5px 8px $calculator-shadow-2;
+    display: inline-block;
+
+    :active{
+        box-shadow: inset 2px 3px 4px $calculator-shadow-1, inset -5px -4px 8px $calculator-shadow-2;
+    }
+
+}
+
+.math-btn{
+    background: rgba(0, 0, 0, 0.692);
+    color: white;
+}
+.clear-btn{
+    background: rgba(221, 35, 35, 0.747);
+    color: white;
+}
+
+
+

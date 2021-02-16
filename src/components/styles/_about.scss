@@ -1,7 +1,6 @@
 @import '../../App.scss';
 
 
-
 @mixin p-style {
     color: white;
         background-color: black;
@@ -40,6 +39,7 @@
         @include p-style;
     }
 }
+
 
 .personal-experience{
     display: flex;

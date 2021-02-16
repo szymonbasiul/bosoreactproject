@@ -1,4 +1,4 @@
-import './styles/Navbar.scss';
+import './styles/_navbar.scss';
 import homebutton from '../img/homebutton.png';
 import aboutbutton from '../img/aboutbutton.png';
 import contactbutton from '../img/contactbutton.png';
@@ -15,8 +15,7 @@ function Navbutton(props) {
                     src={props.src}
                     title={props.title}
                     alt="cant find"
-                    onClick={props.trigger}
-                >
+                    onClick={props.trigger}>
                 </img>
             </Link>
         </div>
@@ -24,6 +23,8 @@ function Navbutton(props) {
 
     return navbutton;
 }
+
+/*************************************************************************/ 
 function Navbar() {
     const [Page, setPage] = useState((window.location.href).substr(21));
 
@@ -44,6 +45,7 @@ function Navbar() {
             link: "/",
             title: "home"
         }];
+
     const changeState = () => {
         setTimeout(() => {
             setPage((window.location.href).substr(21));

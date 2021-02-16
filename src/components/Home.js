@@ -1,8 +1,10 @@
 import React from 'react';
-import './styles/Home.scss';
+import './styles/_home.scss';
 import project1pic from '../img/project1pic.png';
 import project2pic from '../img/project2pic.png';
 import project3pic from '../img/project3pic.png';
+import { Calculator } from './projects/calculator/Calculator';
+import { Link } from 'react-router-dom';
 
 function Home() {
     const loremIpsum = (<div className="pro-text" >Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /> Pariatur fugit aperiam temporibus ut vel et,
@@ -22,20 +24,25 @@ function Home() {
     }
     const projectClassList = [
         {
-            src: project1pic
+            src: project1pic,
+            link: '/calculator'
         },
         {
-            src: project2pic
+            src: project2pic,
+            link: '/calculator'
         },
         {
-            src: project3pic
+            src: project3pic,
+            link: '/calculator'
         }
     ]
     const projectsInContainerDisplay = () => {
         return (<div id="project-container">
             {projectClassList.map(x => (
                 <div className="project-class" key={x.src} >
-                    <img className="pro-image" src={x.src} alt="display project" />
+                    <Link to={x.link}>
+                        <img className="pro-image" src={x.src} alt="display project" />
+                    </Link>
                     {x.src === project1pic ? project1UlListDisplay() : loremIpsum}
                 </div>
             ))}
