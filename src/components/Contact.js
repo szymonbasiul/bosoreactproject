@@ -34,10 +34,6 @@ const Contact = function () {
 
 
     }
-    const fieldValueViewer = () => {
-
-        console.log(fieldValue);
-    }
 
     const [lockEmailField, setLockEmailField] = useState(true);
     const [lockTextField, setLockTextField] = useState(true);

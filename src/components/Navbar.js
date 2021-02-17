@@ -24,7 +24,7 @@ function Navbutton(props) {
     return navbutton;
 }
 
-/*************************************************************************/ 
+/*************************************************************************/
 function Navbar() {
     const [Page, setPage] = useState((window.location.href).substr(21));
 

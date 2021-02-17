@@ -3,7 +3,7 @@ import './styles/_home.scss';
 import project1pic from '../img/project1pic.png';
 import project2pic from '../img/project2pic.png';
 import project3pic from '../img/project3pic.png';
-import { Calculator } from './projects/calculator/Calculator';
+// import { Calculator } from './projects/calculator/Calculator';
 import { Link } from 'react-router-dom';
 
 function Home() {
@@ -38,6 +38,7 @@ function Home() {
     ]
     const projectsInContainerDisplay = () => {
         return (<div id="project-container">
+            <button>dupppka</button>
             {projectClassList.map(x => (
                 <div className="project-class" key={x.src} >
                     <Link to={x.link}>
