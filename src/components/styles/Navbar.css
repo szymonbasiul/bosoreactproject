@@ -1,0 +1,44 @@
+#mainDiv {
+  max-width: 960px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: auto;
+  background-color: rgba(153, 140, 140, 0.671);
+}
+
+.nav-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background-color: white;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  position: fixed;
+  top: 0;
+  border-style: solid;
+}
+
+.nav-button {
+  display: inline;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+  padding: 15px;
+  font-size: medium;
+  font-weight: bold;
+  font-style: italic;
+  width: 10%;
+}
+
+.button-img {
+  max-width: 100%;
+}
+/*# sourceMappingURL=Navbar.css.map */

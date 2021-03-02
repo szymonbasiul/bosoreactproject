@@ -50,7 +50,6 @@ $calculator-shadow-2: rgba(243, 243, 243, 0.637);
 
 .cal-btn{
     animation-name: buttonFading;
-    
     margin: 15px 0 0 15px;
     width: 42px;
     height: 42px;
@@ -63,9 +62,12 @@ $calculator-shadow-2: rgba(243, 243, 243, 0.637);
     background: white;
     box-shadow: 5px 5px 8px $calculator-shadow-1, -5px -5px 8px $calculator-shadow-2;
     display: inline-block;
-
     :active{
         box-shadow: inset 2px 3px 4px $calculator-shadow-1, inset -5px -4px 8px $calculator-shadow-2;
+    }
+    img{
+        max-width: 100%;
+        max-height: 100%;
     }
 
 }
