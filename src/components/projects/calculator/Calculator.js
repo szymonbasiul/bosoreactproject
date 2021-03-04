@@ -3,54 +3,78 @@ import '../../styles/Calculator.css';
 
 let setRandomizeButtons = true
 export const Calculator = function () {
-    // const [randomizeButtons, setRandommizeButtons] = useState(true)
 
-
-    const [calculatorDisplay, setCalculatorDisplay] = useState({x:0, y:0});
+    const [calculatorDisplay, setCalculatorDisplay] = useState({x:0, y:0, z:'', q:''});
 
     const randomizedNumberPlusS = () => {
         if (setRandomizeButtons) {
-            return Math.floor(Math.random() * 10).toString() + "s";
-        }
+            return Math.floor(Math.random() * 10).toString() + "s"
+        };
     }
+
     const buttonClick = () => {
         setRandomizeButtons = false
         console.log('warzywa')
     }
-    // useEffect(() => {
-    //     setRandommizeButtons(false)
-    // }, [])
+    
+    const stateModifier = (vx=0, vy=0, vz='', vq='') => {
+        return { x:  vx , y:  vy , z: vz, q: vq}
+    }
 
-    // const imgButtonGenerator = (props) => {
-    //     return require('../img/' + props + '.jpg').default;
-    // }
+    const tekstCutting = () => {
+        console.log(calculatorDisplay.x)
+    }
+
+    const mathOperation = (numberA, numberB, operator) => {
+        if (operator === '+') {
+            return numberA + numberB;
+        } else if (operator === '-') {
+            return numberA - numberB;
+        } else if (operator === '*') {
+            return numberA * numberB;
+        } else if (operator === '÷') {
+            return numberA / numberB;
+        } else {
+            return numberB;
+        }
+    }
+
+    const operatorCheck = (operator) => {
+        (operator === 'plus') ? (
+            setCalculatorDisplay(stateModifier(calculatorDisplay.x, calculatorDisplay.x, '+','+'))
+        ) : (operator === 'minus') ? (
+            setCalculatorDisplay(stateModifier(calculatorDisplay.x, calculatorDisplay.x, '-','-'))
+        ) : (operator === 'x') ? (
+            setCalculatorDisplay(stateModifier(calculatorDisplay.x, calculatorDisplay.x, '*','*'))
+        ) : (operator === 'divide') ? (
+            setCalculatorDisplay(stateModifier(calculatorDisplay.x, calculatorDisplay.x, '÷','÷'))
+        ) : (operator === 'equals') && (
+            setCalculatorDisplay(stateModifier(mathOperation(calculatorDisplay.y, (parseInt(calculatorDisplay.x)), calculatorDisplay.q)))
+        )
+    }
+
+    useEffect(() => {
+        (typeof(calculatorDisplay.x) === `string` && calculatorDisplay.z) && (
+            setCalculatorDisplay(stateModifier(parseInt(calculatorDisplay.x), parseInt(calculatorDisplay.x), calculatorDisplay.z, calculatorDisplay.q))
+        )
+    }, [calculatorDisplay])
 
     const buttonTrigger = (event) => {
         const buttonAlt = event.target.alt;
 
-        const additionalState = (vx=0, vy=0) => {
-            return { x:  vx , y:  vy }
-        }
-        console.log(additionalState());
-        
-        setCalculatorDisplay(additionalState(buttonAlt));
+        (buttonAlt === 'c') && (setCalculatorDisplay(stateModifier(0)))
 
-        if (buttonAlt === 'c') {
-            setCalculatorDisplay(
-                {x:0, y:0}
-            )
+        operatorCheck(buttonAlt);
 
-        }
-
-
-
-        
-
-
-
-
-        console.log(event.target.alt)
+        (!isNaN(buttonAlt)) && (
+            (calculatorDisplay.z)
+            ? setCalculatorDisplay(stateModifier(buttonAlt, calculatorDisplay.y, '', calculatorDisplay.q))
+            : setCalculatorDisplay(stateModifier(calculatorDisplay.x+buttonAlt, calculatorDisplay.y, calculatorDisplay.z, calculatorDisplay.q))
+        )
     }
+
+    (calculatorDisplay.x.length === 2 && calculatorDisplay.x.charAt(0) === '0')
+        && setCalculatorDisplay(stateModifier(calculatorDisplay.x.substring(1)))
 
     const buttonValues = [7, 8, 9, 'plus', 4, 5, 6, 'minus', 1, 2, 3, 'x', 'c', 0, 'equals', 'divide'];
     const calculatorConstructor2 = () => {
@@ -63,21 +87,15 @@ export const Calculator = function () {
         )
     }
 
-
-
-
-
-
     const calculatorConstructor = (<div className="calculator-container">
         <div className="calculator">
             <div className="calc-body">
                 <input id="display" type="text" name="display"
-                    value={calculatorDisplay.x} readOnly={true} />
+                    value={calculatorDisplay.z +' '+ `${calculatorDisplay.x}`} readOnly={true} />
                 <>{calculatorConstructor2()}</>
             </div>
         </div>
     </div>)
 
     return calculatorConstructor;
-
 }
