@@ -6,6 +6,7 @@ import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
 import { Calculator } from './components/projects/calculator/Calculator';
+import SignInForm from './components/projects/signin/SignInForm';
 
 function ErrorComponent() {
   return <div>eroor</div>
@@ -21,6 +22,7 @@ function App() {
           <Route path="/about" component={About} />
           <Route path="/contact" component={Contact} />
           <Route path="/calculator" component={Calculator} />
+          <Route path="/signin" component={SignInForm} />
           <Route component={ErrorComponent} />
         </Switch>
       </BrowserRouter>

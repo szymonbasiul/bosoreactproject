@@ -1,0 +1,14 @@
+@import '../../App.scss';
+
+#signContainer {
+    display: flex;
+    margin-top: 150px;
+    flex-direction: column;
+    align-items: center;
+    input {
+        width: 40%;
+        border-style: groove;
+        box-shadow: grey 2px 3px;
+        height: 32px;
+    }
+}
