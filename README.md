@@ -7,6 +7,10 @@
         OR
 `yarn add node-sass@4.14.1`
 
+`npm install mysql`
+        OR
+`yarn add mysql`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
