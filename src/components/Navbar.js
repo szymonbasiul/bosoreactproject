@@ -6,24 +6,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 
-function Navbutton(props) {
-
-    const navbutton = (
-        <div className="nav-button">
-            <Link to={props.link}>
-                <img className="button-img"
-                    src={props.src}
-                    title={props.title}
-                    alt="cant find"
-                    onClick={props.trigger}>
-                </img>
-            </Link>
-        </div>
-    )
-
-    return navbutton;
-}
-
 /*************************************************************************/
 function Navbar() {
     const [Page, setPage] = useState((window.location.href).substr(21));
@@ -46,25 +28,24 @@ function Navbar() {
             title: "home"
         }];
 
-    const changeState = () => {
-        setTimeout(() => {
-            setPage((window.location.href).substr(21));
-
-        }, 0)
-    }
-
     const filterDisplay = navbuttons.filter(buttonObject =>
         buttonObject.link !== Page
 
     )
-    const navbarDisplay = filterDisplay.map(buttonObject =>
-        <Navbutton
-            key={buttonObject.title}
-            link={buttonObject.link}
-            src={buttonObject.src}
-            title={buttonObject.title}
-            trigger={changeState}
-        />
+
+    console.log((window.location.href).substr(21), Page)
+    const navbarDisplay = filterDisplay.map(buttonObject => {
+        return (<div className="nav-button" key={buttonObject.title}>
+            <Link to={buttonObject.link}>
+                <img className="button-img"
+                    src={buttonObject.src}
+                    title={buttonObject.title}
+                    alt="navbarAlt"
+                    onClick={() => { setPage((window.location.href).substr(21)) }}
+                />
+            </Link>
+        </div>)
+    }
     )
 
     return <div className="nav-bar">{navbarDisplay}</div>;

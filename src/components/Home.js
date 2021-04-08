@@ -29,7 +29,7 @@ function Home() {
         },
         {
             src: project2pic,
-            link: '/calculator'
+            link: '/signin'
         },
         {
             src: project3pic,
