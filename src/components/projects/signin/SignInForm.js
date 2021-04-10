@@ -1,11 +1,17 @@
 import React from 'react';
 import "../../styles/SignIn.css";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
-const SignInForm = () => {
+
+const SignInForm = ({currentChildHref, parentState}) => {
+
+    useEffect(() => {
+        parentState !== (window.location.href).substr(21) &&
+    currentChildHref((window.location.href).substr(21));
+    },[currentChildHref, parentState])
 
     const [signInData, setSignInData] = useState({ "name": "", "surname": "", "email": "" });
-    
+
     const addFormulaToState = (name, surname, email) => {
         const newState = { "name": name, "surname": surname, "email": email }
         setSignInData(newState);

@@ -1,9 +1,17 @@
 import React from 'react';
+import { useEffect } from 'react';
 import './styles/About.css';
-import bb from '../img/bodzio-bodzio.png';
-import ss from '../img/szym-szym.png';
+import bb from '../img/bodzio-bodzio.jpg';
+import ss from '../img/szym-szym.jpg';
 
-const About = function(){
+const About = function ({currentChildHref, parentState}) {
+
+    useEffect(() => {
+        parentState !== (window.location.href).substr(21) &&
+    currentChildHref((window.location.href).substr(21));
+    },[currentChildHref, parentState])
+
+
 const loremIpsum = (
 <>
     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -19,7 +27,8 @@ const bInfo = (
             Surname: KNT<br/>
             E-mail:nie@uk.co<br/>
     </div>
-);
+    );
+    
 const sInfo =(
     <div className="personal-info">
         <p>&nbsp;Info</p><br/>
@@ -27,7 +36,8 @@ const sInfo =(
         Surname: Raider<br/>
         E-mail:google@wp.pl<br/>
     </div>
-)
+    )
+
 const projectsInContainerDisplay = (
 <div id="cv-container">
     <div className="profiles-class" id="profile-a">

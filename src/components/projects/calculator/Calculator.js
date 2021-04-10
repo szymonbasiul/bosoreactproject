@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 import '../../styles/Calculator.css';
 
 let setRandomizeButtons = true
-export const Calculator = function () {
+
+export const Calculator = function ({currentChildHref, parentState}) {
+
+    useEffect(() => {
+        parentState !== (window.location.href).substr(21) &&
+    currentChildHref((window.location.href).substr(21));
+    },[currentChildHref, parentState])
 
     const [calculatorDisplay, setCalculatorDisplay] = useState({x:0, y:0, z:'', q:''});
 
@@ -12,17 +18,8 @@ export const Calculator = function () {
         };
     }
 
-    const buttonClick = () => {
-        setRandomizeButtons = false
-        console.log('warzywa')
-    }
-    
     const stateModifier = (vx=0, vy=0, vz='', vq='') => {
         return { x:  vx , y:  vy , z: vz, q: vq}
-    }
-
-    const tekstCutting = () => {
-        console.log(calculatorDisplay.x)
     }
 
     const mathOperation = (numberA, numberB, operator) => {
@@ -81,7 +78,7 @@ export const Calculator = function () {
         return buttonValues.map(x => {
             return (<div className="cal-btn" key={x}
                 style={{ animationDuration: randomizedNumberPlusS() }}>
-                <img alt={x} onClick={ (e)=> buttonTrigger(e) } src={require(`../../../img/cb_${x}.jpg`).default } />
+                <img alt={x} onClick={ e => buttonTrigger(e) } src={require(`../../../img/cb_${x}.jpg`).default } />
             </div>)
             }
         )
@@ -91,7 +88,7 @@ export const Calculator = function () {
         <div className="calculator">
             <div className="calc-body">
                 <input id="display" type="text" name="display"
-                    value={calculatorDisplay.z +' '+ `${calculatorDisplay.x}`} readOnly={true} />
+                    value={`${calculatorDisplay.z} ${calculatorDisplay.x}`} readOnly={true} />
                 <>{calculatorConstructor2()}</>
             </div>
         </div>

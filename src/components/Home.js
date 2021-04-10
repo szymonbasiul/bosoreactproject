@@ -5,8 +5,15 @@ import project2pic from '../img/project2pic.png';
 import project3pic from '../img/project3pic.png';
 // import { Calculator } from './projects/calculator/Calculator';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
-function Home() {
+function Home({ currentChildHref, parentState }) {
+
+    useEffect(() => {
+        parentState !== (window.location.href).substr(21) &&
+    currentChildHref((window.location.href).substr(21));
+    },[currentChildHref, parentState])
+
     const loremIpsum = (<div className="pro-text" >Lorem ipsum dolor sit amet consectetur adipisicing elit.<br /> Pariatur fugit aperiam temporibus ut vel et,
     id nostrum doloremque animi vero unde,<br /> cumque ipsum optio hic minima impedit quisquam reprehenderit iusto?<br />
     n commodi animi ducimus neque repellat <br />dignissimos doloribus ipsam nam labore asperiores,<br />

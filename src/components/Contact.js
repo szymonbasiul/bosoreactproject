@@ -1,8 +1,14 @@
 import React from 'react';
 import './styles/Contact.css';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
-const Contact = function () {
+const Contact = function ({ currentChildHref, parentState }) {
+
+    useEffect(() => {
+        parentState !== (window.location.href).substr(21) &&
+    currentChildHref((window.location.href).substr(21));
+    },[currentChildHref, parentState])
 
     const tempContent = {
 
@@ -38,10 +44,6 @@ const Contact = function () {
     const [lockEmailField, setLockEmailField] = useState(true);
     const [lockTextField, setLockTextField] = useState(true);
     const [fieldValue, setFieldValue] = useState(tempContent);
-
-
-    const [beigeText, setBeigeText] =
-        useState("Bezowy tekst");
 
     const testTrigger = (event) => {
 
@@ -92,7 +94,7 @@ const Contact = function () {
                 </div>
                 <div id="responsive-container">
                     <div id="responisive-textField">
-                        {beigeText}
+                        {}
                     </div>
                 </div>
             </div>
