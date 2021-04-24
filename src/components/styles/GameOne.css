@@ -1,0 +1,17 @@
+#mainDiv {
+  max-width: 960px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: auto;
+  background-color: rgba(153, 140, 140, 0.671);
+}
+
+#gameone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-top: 150px;
+  border-style: solid;
+}
+/*# sourceMappingURL=GameOne.css.map */

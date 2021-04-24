@@ -7,6 +7,7 @@ import About from './components/About';
 import Contact from './components/Contact';
 import { Calculator } from './components/projects/calculator/Calculator';
 import SignInForm from './components/projects/signin/SignInForm';
+import GameOne from './components/projects/gameOne/GameOne'
 import { useState } from 'react';
 import React from 'react';
 
@@ -41,6 +42,9 @@ function App() {
           )} />
           <Route path="/signin" render={(props) => (
             <SignInForm {...props} currentChildHref={setPage} parentState={page} />
+          )} />
+          <Route path="/gameone" render={(props) => (
+            <GameOne {...props} currentChildHref={setPage} parentState={page} />
           )}  />
           <Route component={ErrorComponent} />
         </Switch>

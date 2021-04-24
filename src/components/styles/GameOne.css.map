@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "ACMA,AAAA,QAAQ,CAAA;EACN,SAAS,EAAE,KAAK;EAChB,UAAU,EAAE,MAAM;EAClB,MAAM,EAAC,IAAI;EACX,gBAAgB,EAPE,0BAA0B;CAQ7C;;ADTD,AAAA,QAAQ,CAAC;EACL,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,KAAK;EACjB,YAAY,EAAE,KAAK;CAEtB",
+    "sources": [
+        "GameOne.scss",
+        "../../App.scss"
+    ],
+    "names": [],
+    "file": "GameOne.css"
+}
