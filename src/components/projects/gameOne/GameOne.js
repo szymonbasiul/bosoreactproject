@@ -1,47 +1,64 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import "../../styles/GameOne.css";
 
 
 
-const GameOne = (props) => {
+const GameOne = ({staticContext, currentChildHref, parentState, ...rest}) => {
 
-    const draw = (ctx, frameCount) => {
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
-        ctx.fillStyle = '#000000'
-        ctx.beginPath()
-        ctx.arc((ctx.canvas.width)/2, (ctx.canvas.height)/2, 200*Math.sin(frameCount*0.0114)**2, 0 , 2*Math.PI)
-        ctx.fill()
+    const squareSize = 0.5;
+
+    const draw = (ctx) => {
+        // ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        // ctx.fillStyle = '#000000'
+        // ctx.beginPath()
+        // ctx.rect(0, 0, ctx.canvas.width, ctx.canvas.height)
+        // ctx.fill()
+        const squareSize = 1/8*(ctx.canvas.width);
+        for (let i = 0; i < 8; i++){
+            for (let j = 0; j < 8; j++){
+                ctx.fillStyle = ((i + j) % 2 == 0) ? "white" : "black";
+                let xOffset = j * squareSize;
+                let yOffset = i * squareSize;
+                ctx.fillRect(xOffset, yOffset, squareSize, squareSize);
+
+            }
+        }
     }
 
     useEffect(() => {
         const canvas = canvasRef.current
         const context = canvas.getContext('2d')
-        let frameCount = 0
-        let animationFrameId
+        const heightRatio = 1;
+        canvas.height = canvas.width * heightRatio;
+        // let frameCount = 0
+        // let animationFrameId
+        
+        draw(context)
+        // const render = () => {
+        //     frameCount++
+        //     draw(context, frameCount)
+        //     animationFrameId = window.requestAnimationFrame(render)
+        // }
+        // render()
 
-        const render = () => {
-            frameCount++
-            draw(context, frameCount)
-            animationFrameId = window.requestAnimationFrame(render)
-        }
-        render()
-
-        return () => {
-            window.cancelAnimationFrame(animationFrameId)
-        }
+        // return () => {
+        //     window.cancelAnimationFrame(animationFrameId)
+        // }
     }, [draw])
 
     useEffect(() => {
-        props.parentState !== (window.location.href).substr(21) &&
-    props.currentChildHref((window.location.href).substr(21));
-    }, [props.currentChildHref, props.parentState])
+        parentState !== (window.location.href).substr(21) &&
+    currentChildHref((window.location.href).substr(21));
+    }, [currentChildHref, parentState])
     
     const canvasRef = useRef(null)
+    const buttonRef = useRef(null)
 
     return (
         <div>
-            <canvas ref={canvasRef} {...props} id="gameone" width="400" height="400" />
+            <canvas ref={canvasRef} {...rest} id="gameone" />
         </div>
+        
     );
 }
 
